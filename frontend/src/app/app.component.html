@@ -1,0 +1,20 @@
+<div class="container">
+  <header class="header">
+    <h1>{{ title }}</h1>
+    <p class="muted">Prototype assistant. Verify with official guidelines.</p>
+  </header>
+
+  <section class="card">
+    <h2 class="section-title">Enter Diagnosis</h2>
+    <app-diagnosis-form (submitDiagnosis)="onSubmitDiagnosis($event)"></app-diagnosis-form>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Results</h2>
+    <app-guideline-result
+      [loading]="loading()"
+      [error]="error()"
+      [result]="result()"
+    ></app-guideline-result>
+  </section>
+</div>

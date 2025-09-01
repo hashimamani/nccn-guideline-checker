@@ -1,0 +1,50 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+**/dist/
+build/
+.cache/
+.tmp/
+tmp/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files (keep .env.example)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Coverage
+coverage/
+**/coverage/
+
+# IDE/editor settings
+.idea/
+.vscode/
+.history/
+*.sublime-workspace
+.project
+.classpath
+.settings/
+.c9/
+
+# Angular cache
+.angular/
+**/.angular/cache
+

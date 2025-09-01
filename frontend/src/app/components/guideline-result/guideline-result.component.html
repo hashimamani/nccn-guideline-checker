@@ -1,0 +1,40 @@
+<div class="status" *ngIf="loading">
+  <span class="dot"></span>
+  Fetching guidelines...
+  </div>
+<div class="status error" *ngIf="!loading && error">{{ error }}</div>
+
+<ng-container *ngIf="!loading && !error && result">
+  <h3 class="diag">Guidelines for: <span>{{ result?.diagnosis }}</span></h3>
+
+  <section class="block">
+    <h3>Workup</h3>
+    <ul>
+      <li *ngFor="let item of result?.workup">{{ item }}</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h3>Treatment</h3>
+    <ul>
+      <li *ngFor="let t of result?.treatment">
+        <strong>{{ t.name }}</strong>
+        <span *ngIf="t.details"> — {{ t.details }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h3>Surveillance</h3>
+    <ul>
+      <li *ngFor="let s of result?.surveillance">{{ s }}</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h3>Follow-up</h3>
+    <ul>
+      <li *ngFor="let f of result?.follow_up">{{ f }}</li>
+    </ul>
+  </section>
+</ng-container>

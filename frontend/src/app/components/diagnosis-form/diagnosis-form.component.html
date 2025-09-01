@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" class="form" #form="ngForm">
+  <label for="diagnosis" class="label">Cancer diagnosis</label>
+  <textarea
+    id="diagnosis"
+    name="diagnosis"
+    [ngModel]="diagnosis()"
+    (ngModelChange)="diagnosis.set($event)"
+    rows="4"
+    class="input"
+    placeholder="e.g., Triple-negative breast cancer, stage IV"
+    required
+  ></textarea>
+  <div class="actions">
+    <button class="btn" type="submit" [disabled]="!diagnosis().trim()">Get guidelines</button>
+    <span class="muted hint">No PHI. Use generic descriptors.</span>
+  </div>
+</form>
