@@ -37,3 +37,45 @@ h3 { margin: 0.25rem 0; }
 .diag span { color: var(--muted); font-weight: 400; }
 ul { margin: 6px 0 8px; padding-left: 18px; }
 li { line-height: 1.45; }
+
+/* Table styling */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.care-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border-radius: 10px;
+  overflow: hidden; /* so radius clips header */
+}
+
+.care-table thead th {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--text);
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.care-table td {
+  padding: 12px 14px;
+  vertical-align: top;
+  border-top: 1px solid var(--border);
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.care-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.care-table tbody tr:hover td {
+  background: rgba(37, 99, 235, 0.06);
+}

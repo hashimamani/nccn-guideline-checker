@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import type { GuidelineResponse } from '../../models/guideline';
+import type { CarePlanRow } from '../../models/guideline';
 import { NgIf, NgFor } from '@angular/common';
 
 @Component({
@@ -10,8 +10,12 @@ import { NgIf, NgFor } from '@angular/common';
   styleUrl: './guideline-result.component.scss'
 })
 export class GuidelineResultComponent {
-  @Input() result?: GuidelineResponse;
+  @Input() rows?: CarePlanRow[];
   @Input() loading = false;
   @Input() error?: string | null;
-}
 
+  toLines(value: string[] | string | undefined | null): string[] {
+    if (!value) return [];
+    return Array.isArray(value) ? value : [value];
+  }
+}

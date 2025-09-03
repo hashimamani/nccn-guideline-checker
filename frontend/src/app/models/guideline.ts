@@ -1,13 +1,6 @@
-export interface TreatmentModality {
-  name: string;
-  details?: string;
+export interface CarePlanRow {
+  clinical_issue_diagnosis: string;
+  therapeutic_objective: string[];
+  management_strategy: string[];
+  assessment_of_response_follow_up: string[];
 }
-
-export interface GuidelineResponse {
-  diagnosis: string;
-  workup: string[];
-  treatment: TreatmentModality[];
-  surveillance: string[];
-  follow_up: string[];
-}
-

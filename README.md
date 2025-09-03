@@ -1,4 +1,4 @@
-# NCCN Guideline Checker
+# Oncology Care Plan
 
 An Angular app that takes a free‑text cancer diagnosis (e.g., “triple negative breast cancer stage IV”) and returns suggested workup, treatment modalities, surveillance, and follow‑up. The UI calls a minimal Node backend which in turn calls OpenAI APIs.
 

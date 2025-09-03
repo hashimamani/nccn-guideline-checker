@@ -4,37 +4,37 @@
   </div>
 <div class="status error" *ngIf="!loading && error">{{ error }}</div>
 
-<ng-container *ngIf="!loading && !error && result">
-  <h3 class="diag">Guidelines for: <span>{{ result?.diagnosis }}</span></h3>
-
-  <section class="block">
-    <h3>Workup</h3>
-    <ul>
-      <li *ngFor="let item of result?.workup">{{ item }}</li>
-    </ul>
-  </section>
-
-  <section class="block">
-    <h3>Treatment</h3>
-    <ul>
-      <li *ngFor="let t of result?.treatment">
-        <strong>{{ t.name }}</strong>
-        <span *ngIf="t.details"> — {{ t.details }}</span>
-      </li>
-    </ul>
-  </section>
-
-  <section class="block">
-    <h3>Surveillance</h3>
-    <ul>
-      <li *ngFor="let s of result?.surveillance">{{ s }}</li>
-    </ul>
-  </section>
-
-  <section class="block">
-    <h3>Follow-up</h3>
-    <ul>
-      <li *ngFor="let f of result?.follow_up">{{ f }}</li>
-    </ul>
-  </section>
+<ng-container *ngIf="!loading && !error && rows?.length">
+  <div class="table-wrap">
+  <table class="care-table">
+    <thead>
+      <tr>
+        <th>Clinical Issue / Diagnosis</th>
+<!--        <th>Therapeutic Objective</th>-->
+        <th>Management Strategy</th>
+<!--        <th>Assessment of Response / Follow-up</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <td>{{ row.clinical_issue_diagnosis }}</td>
+<!--        <td>-->
+<!--          <ng-container *ngFor="let item of toLines(row.therapeutic_objective); let last = last">-->
+<!--            • {{ item }}<br *ngIf="!last">-->
+<!--          </ng-container>-->
+<!--        </td>-->
+        <td>
+          <ng-container *ngFor="let item of toLines(row.management_strategy); let last = last">
+            • {{ item }}<br *ngIf="!last">
+          </ng-container>
+        </td>
+<!--        <td>-->
+<!--          <ng-container *ngFor="let item of toLines(row.assessment_of_response_follow_up); let last = last">-->
+<!--            • {{ item }}<br *ngIf="!last">-->
+<!--          </ng-container>-->
+<!--        </td>-->
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </ng-container>
